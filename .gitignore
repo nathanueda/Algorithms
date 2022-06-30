@@ -1,0 +1,5 @@
+Search/test_binary_search.py
+Search/test_linear_search_sorted.py
+Search/test_linear_search_unsorted.py
+Search/__pycache__
+.DS_Store
