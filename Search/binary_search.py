@@ -13,6 +13,9 @@ data structure.
 
 Time Complexity: O(logn)
 Space Complexity: O(1)
+
+Notes:
+- Can only be used on data that is already sorted.
 """
 
 def binary_search(query, items):

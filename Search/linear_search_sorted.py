@@ -9,6 +9,9 @@ false.
 
 Time Complexity: O(n)
 Space Complexity: O(1)
+
+Notes:
+- Rarely the most efficient searching algorithm. 
 """
 
 def linear_search_sorted(query, items):

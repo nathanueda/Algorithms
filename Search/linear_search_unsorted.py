@@ -7,6 +7,9 @@ the query to each element in the data structure.
 
 Time Complexity: O(n)
 Space Complexity: O(1)
+
+Notes:
+- Rarely the most efficient searching algorithm. 
 """
 
 def linear_search_unsorted(query, items):
