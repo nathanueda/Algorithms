@@ -6,12 +6,11 @@ the query to each element in the data structure.
 3. Else if the item in the data structure is larger than the query, return 
 false.
 4. If the query doesn't match with any element, return false.
+"""
 
+"""
 Time Complexity: O(n)
 Space Complexity: O(1)
-
-Notes:
-- Rarely the most efficient searching algorithm. 
 """
 
 def linear_search_sorted(query, items):
@@ -27,3 +26,24 @@ def linear_search_sorted(query, items):
         elif item > query:
             break
     return False
+
+
+"""
+Examples:
+linear_search_sorted(5, [5, 6, 7, 9, 12])
+@return: True
+
+linear_search_sorted(12, [5, 6, 7, 9, 12])
+@return: True
+
+linear_search_sorted(9, [5, 6, 7, 9, 12])
+@return: True
+
+linear_search_sorted(8, [5, 6, 7, 9, 12])
+@return: False
+"""
+
+"""
+Notes:
+- Rarely the most efficient searching algorithm. 
+"""

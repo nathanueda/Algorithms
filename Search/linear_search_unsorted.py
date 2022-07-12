@@ -5,11 +5,11 @@ the query to each element in the data structure.
 2. If the query matches with an element, return true.
 3. If the query doesn't match with any element, return false.
 
+"""
+
+"""
 Time Complexity: O(n)
 Space Complexity: O(1)
-
-Notes:
-- Rarely the most efficient searching algorithm. 
 """
 
 def linear_search_unsorted(query, items):
@@ -25,3 +25,25 @@ def linear_search_unsorted(query, items):
             return True
     return False
 
+"""
+Examples: 
+linear_search_unsorted(5, [5, 6, 1, 4, 2])
+@return: True
+
+linear_search_unsorted(2, [5, 6, 1, 4, 2])
+@return: True
+
+linear_search_unsorted(1, [5, 6, 1, 4, 2])
+@return: True
+
+linear_search_unsorted(11, [5, 6, 1, 4, 2])
+@return: False
+
+linear_search_unsorted('hello', [5, 'bye', 1, 4, 'hello'])
+@return: True
+"""
+
+"""
+Notes:
+- Rarely the most efficient searching algorithm. 
+"""

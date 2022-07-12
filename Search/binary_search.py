@@ -1,7 +1,7 @@
 """
 Binary Search Algorithm:
 1. Begin with an interval covering the whole array.
-2. If the query we are searchig for is equal to the value t the index in the 
+2. If the query we are searching for is equal to the value at the index in the 
 middle of the interval, return the index of the midpoint.
 3. Else if the query we are seraching for is less than the value at the index in 
 the middle of the interval, narrow this interval to the left half of the data 
@@ -10,12 +10,11 @@ structure.
 in the middle of the interval, narrow this interval to the right half of the 
 data structure. 
 5. Repeat steps 2-4 until the query is found or the interval is empty.
+"""
 
+"""
 Time Complexity: O(logn)
 Space Complexity: O(1)
-
-Notes:
-- Can only be used on data that is already sorted.
 """
 
 def binary_search(query, items):
@@ -39,3 +38,24 @@ def binary_search(query, items):
             left = midpoint + 1
     
     return None
+
+
+"""
+Examples: 
+binary_search(7, [5, 6, 7, 9, 12])
+@return: 2
+
+binary_search(5, [5, 6, 7, 9, 12])
+@return: 0
+
+binary_search(12, [5, 6, 7, 9, 12])
+@return: 4
+
+binary_search(99, [5, 6, 7, 9, 12])
+@return: None
+"""
+
+"""
+Notes:
+- Can only be used on data that is already sorted.
+"""
