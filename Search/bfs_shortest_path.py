@@ -47,6 +47,7 @@ def bfs_shortest_path(graph: dict, start, target) -> int:
                 if adj_vertex not in visited_vertices:
                     queue.append((adj_vertex, dist + 1))
 
+    # If reached, no path exists.
     return dist_from_start[target]
 
 """
@@ -73,7 +74,6 @@ bfs_shortest_path(graph, 'A', 'H')
 
 bfs_shortest_path(graph, 'H', 'A')
 @return: None
-
 """
 
 """
