@@ -9,42 +9,44 @@ distance it was popped from the queue with. Label this distance as "dist."
 6. Iterate over all the adjacent vertices of the current vertex. Add all 
 adjacent vertices that have not yet been visited to the queue with a distance of
 dist+1.
-7. Repeat from step 2 until the queue is empty or the target vertex is found.
+7. Repeat from step 2 until the queue is empty or we have visted each vertex 
+once.
 """
 
 """
 Time Complexity: O(|V| + |E|)
 """
 
-def bfs_shortest_path(graph: dict, start, target) -> int:
+def bfs_reachables_vertices(graph: dict, start) -> dict:
     """
-    Finds the shortest path between the start and target node.
+    Finds all reachable nodes from the start vertex as well as their respective
+    shortest path from the start vertex.
     @param graph: The graph (adjacency list) we are searching within.
     @param start: Node to start the search from.
-    @param target: Node to find the shortest to.
-    @return: The shortest path from the start node to the target node. Return
-    None if no such path exists or at least either the start or target vertex
-    are not in the graph.
+    @return: All nodes reachable from the start vertex as well as their 
+    respective shortest path from the start vertex. Return an empty dict if
+    the start vertex is not in graph.
     """
 
-    if start not in graph or target not in graph:
-        return None
-
+    if start not in graph:
+        return {}
+        
     queue = [(start, 0)]
     # Target distance remains None as long as no path to target is found.
-    dist_from_start = {target: None}   
+    dist_from_start = {}   
     visited_vertices = set()
     
     while queue:
         curr_vertex, dist = queue.pop(0)
 
-        # Terminate computation if target vertex is reached.
-        if curr_vertex == target:
-            return dist
-        elif curr_vertex not in visited_vertices:
+        if curr_vertex not in visited_vertices:
             visited_vertices.add(curr_vertex)
             # Finalizing the distance for curr_vertex.
             dist_from_start[curr_vertex] = dist
+
+            # If we've visited each vertex we are done.
+            if len(visited_vertices) == len(graph):
+                break
 
             # Adding each unvisited adj_vertex to the queue.
             for adj_vertex in graph[curr_vertex]:
@@ -52,7 +54,7 @@ def bfs_shortest_path(graph: dict, start, target) -> int:
                     queue.append((adj_vertex, dist + 1))
 
     # If reached, no path exists.
-    return dist_from_start[target]
+    return dist_from_start
 
 """
 Examples:
@@ -67,26 +69,14 @@ graph = {
     'H': ['F']
     }
 
-bfs_shortest_path(graph, 'A', 'A')
-@return: 0
+bfs_reachables_vertices(graph, 'D')
+{'D': 0}
 
-bfs_shortest_path(graph, 'A', 'B')
-@return: 1
+bfs_reachables_vertices(graph, 'Z')
+{}
 
-bfs_shortest_path(graph, 'A', 'H')
-@return: 3
-
-bfs_shortest_path(graph, 'H', 'A')
-@return: None
-
-bfs_shortest_path(graph, 'Z', 'A')
-return: None
-
-bfs_shortest_path(graph, 'Z', 'Z')
-return: None
-
-bfs_shortest_path(graph, 'A', 'Z')
-return: None
+bfs_reachables_vertices(graph, 'A')
+{'A': 0, 'B': 1, 'D': 2, 'F': 2, 'H': 3}
 """
 
 """
@@ -94,17 +84,7 @@ Notes:
 - Implemented using a queue.
 - Works on directed and undirected graphs.
 - Finds the shortest path in unweighted graphs.
-- This specific implementation finds the shortest path from a start vertex to
-a target vertex.
+- This specific implementation finds all nodes reachable from a starting vertex
+as well as the shortest paths to all the reachables vertices from the starting
+vertex.
 """
-
-graph = {
-    'A': ['B'],
-    'B': ['D', 'F'],
-    'C': ['A', 'B', 'G'],
-    'D': [],
-    'E': ['G', 'H'],
-    'F': ['D', 'H'],
-    'G': ['C', 'H'],
-    'H': ['F']
-    }
