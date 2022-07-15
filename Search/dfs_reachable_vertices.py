@@ -73,5 +73,6 @@ dfs_reachables_vertices(graph, 'A')
 Notes:
 - Implemented using a stack.
 - Works on directed and undirected graphs.
-- Finds a path between two vertices but not necessarily the shortest path.
+- Finds a path between two vertices but one that is not necessarily the shortest \
+path.
 """
