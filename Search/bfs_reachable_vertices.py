@@ -53,7 +53,6 @@ def bfs_reachables_vertices(graph: dict, start) -> dict:
                 if adj_vertex not in visited_vertices:
                     queue.append((adj_vertex, dist + 1))
 
-    # If reached, no path exists.
     return dist_from_start
 
 """
