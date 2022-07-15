@@ -4,4 +4,5 @@ Search/test_linear_search_sorted.py
 Search/test_linear_search_unsorted.py
 Search/test_bfs_shortest_path.py
 Search/test_bfs_reachable_vertices.py
+Search/test_dfs_reachable_vertices.py
 .DS_Store
