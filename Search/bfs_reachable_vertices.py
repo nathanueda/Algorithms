@@ -9,7 +9,7 @@ distance it was popped from the queue with. Label this distance as "dist."
 6. Iterate over all the adjacent vertices of the current vertex. Add all 
 adjacent vertices that have not yet been visited to the queue with a distance of
 dist+1.
-7. Repeat from step 2 until the queue is empty or we have visted each vertex 
+7. Repeat from step 2 until the queue is empty or we have visited each vertex 
 once.
 """
 
@@ -32,25 +32,24 @@ def bfs_reachables_vertices(graph: dict, start) -> dict:
         return {}
         
     queue = [(start, 0)]
-    # Target distance remains None as long as no path to target is found.
+
+    # If an element is in dist_from_start, it has been visited.
     dist_from_start = {}   
-    visited_vertices = set()
     
     while queue:
         curr_vertex, dist = queue.pop(0)
 
-        if curr_vertex not in visited_vertices:
-            visited_vertices.add(curr_vertex)
+        if curr_vertex not in dist_from_start:
             # Finalizing the distance for curr_vertex.
             dist_from_start[curr_vertex] = dist
 
             # If we've visited each vertex we are done.
-            if len(visited_vertices) == len(graph):
+            if len(dist_from_start) == len(graph):
                 break
 
             # Adding each unvisited adj_vertex to the queue.
             for adj_vertex in graph[curr_vertex]:
-                if adj_vertex not in visited_vertices:
+                if adj_vertex not in dist_from_start:
                     queue.append((adj_vertex, dist + 1))
 
     return dist_from_start

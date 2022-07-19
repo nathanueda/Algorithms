@@ -31,9 +31,9 @@ def bfs_shortest_path(graph: dict, start, target) -> int:
         return None
 
     queue = [(start, 0)]
-    # Target distance remains None as long as no path to target is found.
-    dist_from_start = {target: None}   
-    visited_vertices = set()
+    
+    # If an element is in dist_from_start, it has been visited.    
+    dist_from_start = {}   
     
     while queue:
         curr_vertex, dist = queue.pop(0)
@@ -41,18 +41,17 @@ def bfs_shortest_path(graph: dict, start, target) -> int:
         # Terminate computation if target vertex is reached.
         if curr_vertex == target:
             return dist
-        elif curr_vertex not in visited_vertices:
-            visited_vertices.add(curr_vertex)
+        if curr_vertex not in dist_from_start:
             # Finalizing the distance for curr_vertex.
             dist_from_start[curr_vertex] = dist
 
             # Adding each unvisited adj_vertex to the queue.
             for adj_vertex in graph[curr_vertex]:
-                if adj_vertex not in visited_vertices:
+                if adj_vertex not in dist_from_start:
                     queue.append((adj_vertex, dist + 1))
 
     # If reached, no path exists.
-    return dist_from_start[target]
+    return None
 
 """
 Examples:
