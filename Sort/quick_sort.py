@@ -107,6 +107,12 @@ def partition(items: list, left_index: int, right_index: int) -> int:
     return left_index
         
 def quick_sort(items: list, left_index: int, right_index: int):
+    """
+    A recursive sorting algorithm that partitions an array around a pivot.
+    @param items: The list to sort.
+    @param left_index: The left most index of the array.
+    @param right_index: The right most index of the array.
+    """
     # Base case: the array has 0 or 1 elements.
     if (right_index - left_index <= 0):
         return
