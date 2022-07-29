@@ -153,5 +153,5 @@ pivot, and ensuring that:
     - Every number less than the pivot is to the left of the pivot.
     - Every number greater than the pivot is to the right of the pivot.
 - After completing a partition, the array is likely still unsorted; however, the
-pivot will be in its correct index within array.
+pivot will be in its correct index within the array.
 """
