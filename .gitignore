@@ -1,4 +1,5 @@
 Search/__pycache__
+Sort/__pycache__
 .DS_Store
 Search/test_binary_search.py
 Search/test_linear_search_sorted.py
@@ -7,3 +8,4 @@ Search/test_bfs_shortest_path.py
 Search/test_bfs_reachable_vertices.py
 Search/test_dfs_reachable_vertices.py
 Search/test_dijkstras_shortest_path.py
+Sort/test_quick_sort.py
