@@ -9,3 +9,5 @@ Search/test_bfs_reachable_vertices.py
 Search/test_dfs_reachable_vertices.py
 Search/test_dijkstras_shortest_path.py
 Sort/test_quick_sort.py
+Sort/test_merge_sort.py
+
